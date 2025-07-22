@@ -51,82 +51,94 @@ const Projects = () => {
 
   const allProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "Savarrah",
       description:
-        "Full-stack e-commerce solution with payment processing, inventory management, and admin dashboard. Built for scalability and performance.",
-      tech: ["React", "Node.js", "PostgreSQL", "Tailwind"],
-      link: "https://example.com",
-      github: "https://github.com/username/ecommerce-platform",
+        "A company management website streamlining inventory, product, and order management across various sectors.",
+      tech: ["React", "Next.js", "Tailwind CSS"],
+      link: "https://savarrah.co.tz/",
     },
     {
-      title: "Task Management App",
+      title: "Porto Africa",
       description:
-        "Collaborative project management tool with real-time updates, team collaboration features, and advanced reporting capabilities.",
-      tech: ["React", "Firebase", "TypeScript", "Material-UI"],
-      link: "https://example.com",
-      github: "https://github.com/username/task-manager",
+        "Porto designs innovative, tailored electronic solutions for businesses, integrating systems with operations",
+      tech: ["React", "Node.js", "MongoDB"],
+      link: "https://www.porto.africa/",
     },
     {
-      title: "Weather Dashboard",
+      title: "Iren Porto Africa",
       description:
-        "Real-time weather application with location-based forecasts, interactive maps, and weather alerts using multiple API integrations.",
-      tech: ["Vue.js", "Express", "MongoDB", "Chart.js"],
-      link: "https://example.com",
-      github: "https://github.com/username/weather-app",
+        "IREN is revolutionizing inclusive education by providing accessible, intelligent tools that break down barriers and create equal learning opportunities for all students.",
+      tech: ["html", "CSS"],
+      link: "https://iren.porto.africa/",
     },
     {
-      title: "Social Media Analytics",
+      title: "NJOX Development",
       description:
-        "Analytics platform for social media performance tracking with data visualization, automated reporting, and trend analysis.",
-      tech: ["React", "Python", "Django", "D3.js"],
-      link: "https://example.com",
-      github: "https://github.com/username/social-analytics",
-    },
-    {
-      title: "Learning Management System",
-      description:
-        "Educational platform with course creation tools, progress tracking, and interactive learning modules for online education.",
-      tech: ["Next.js", "Prisma", "PostgreSQL", "Stripe"],
-      github: "https://github.com/username/lms-platform",
-    },
-    {
-      title: "Portfolio Generator",
-      description:
-        "Tool for developers to automatically generate portfolio websites from GitHub data with customizable themes and layouts.",
-      tech: ["React", "GitHub API", "Netlify", "Styled Components"],
-      link: "https://example.com",
-      github: "https://github.com/username/portfolio-generator",
+        "Personal development portfolio and blog showcasing web development projects and insights.",
+      tech: ["Next.js", "React", "Tailwind CSS", "MDX"],
+      link: "https://njox.dev",
     },
   ];
-
   const allResearch = [
     {
-      title: "Machine Learning for Text Classification",
+      title:
+        "NJOX A – Z APPROACH: A Practical Guide for Writing Clean, Maintainable and Modular Code",
       description:
-        "Research on improving text classification accuracy using ensemble methods and feature engineering techniques on social media data.",
-      tech: ["Python", "TensorFlow", "Jupyter", "scikit-learn"],
-      github: "https://github.com/username/text-classification-research",
+        "Comprehensive research and methodology for developing clean, maintainable, and modular code practices. A systematic approach to software development covering best practices, design patterns, and architectural principles. This framework introduces scalable, reusable software development patterns with emphasis on async-friendly architectures, code organization, and long-term maintainability strategies for modern web applications.",
+      tech: [
+        "MongoDB",
+        "Express.js",
+        "React",
+        "Node.js",
+        "JavaScript",
+        "TypeScript",
+      ],
+      github: "https://github.com/username/njox-a-z-approach", // Update with your actual GitHub URL
+      image: "/images/projects/njox-approach.png",
+      publishedDate: "2025-05-01",
     },
     {
-      title: "Web Performance Optimization Study",
+      title: "How Tanzanian Developers Market Their Projects",
       description:
-        "Comprehensive analysis of modern web performance optimization techniques and their impact on user experience metrics.",
-      tech: ["JavaScript", "Lighthouse", "WebPageTest", "Python"],
-      github: "https://github.com/username/web-performance-study",
+        "An in-depth research study exploring the unique marketing strategies and community-driven growth approaches adopted by software developers in Tanzania. This research examines local networking practices, social media utilization, community engagement tactics, and the role of local tech hubs in project promotion. The study provides insights into how Tanzanian developers overcome resource constraints and leverage cultural advantages to successfully market their software projects both locally and internationally.",
+      tech: [
+        "Research",
+        "Community Analysis",
+        "Marketing Strategy",
+        "Social Media",
+      ],
+      github: "", // Add if available
+      image: "/images/projects/tanzanian-dev-marketing.png",
+      publishedDate: "2025-05-01",
     },
     {
-      title: "Cryptocurrency Price Prediction",
+      title: "Swahili-Centric Programming Education via YouTube",
       description:
-        "Time series analysis and machine learning models for predicting cryptocurrency price movements using market sentiment data.",
-      tech: ["Python", "Pandas", "LSTM", "TensorFlow"],
-      github: "https://github.com/username/crypto-prediction",
+        "Groundbreaking research on bridging language barriers in programming education through Swahili-language content delivery on YouTube. This study explores the effectiveness of native language instruction in technical subjects, analyzes viewer engagement patterns, and documents the impact of culturally relevant programming education. The research demonstrates how Swahili programming tutorials can increase accessibility to coding education across East Africa and provides a framework for creating technical content in local languages.",
+      tech: [
+        "Educational Technology",
+        "Content Strategy",
+        "Swahili",
+        "YouTube Analytics",
+      ],
+      github: "", // Add if available
+      image: "/images/projects/swahili-programming.png",
+      publishedDate: "2025-05-01",
     },
     {
-      title: "Mobile App Usage Patterns",
+      title: "The Njox A–Z Approach to Writing and Scaling Code",
       description:
-        "Research study on user behavior patterns in mobile applications and their correlation with app retention rates.",
-      tech: ["R", "Python", "Tableau", "Statistical Analysis"],
-      github: "https://github.com/username/mobile-usage-research",
+        "Advanced research introducing a comprehensive framework for scalable, reusable software development with particular emphasis on async-friendly patterns and modern JavaScript architectures. This methodology covers code organization principles, scalability patterns, performance optimization techniques, and maintainable system design. The approach provides developers with practical guidelines for building applications that can grow from small projects to enterprise-level systems while maintaining code quality and developer productivity.",
+      tech: [
+        "Software Architecture",
+        "Scalability",
+        "JavaScript",
+        "System Design",
+        "Performance",
+      ],
+      github: "", // Add if available
+      image: "/images/projects/scaling-code.png",
+      publishedDate: "2025-05-01",
     },
   ];
 

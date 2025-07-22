@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {
+  fetchGitHubRepos,
+  fetchGitHubStats,
+  fetchContributions,
+} from "../services/github";
+import { trackExternalLink } from "../utils/analytics";
 
 const ContributionCard = ({
   repo,
@@ -8,6 +14,8 @@ const ContributionCard = ({
   forks,
   lastCommit,
   type = "contribution",
+  demoUrl,
+  docsUrl,
 }) => {
   return (
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
@@ -49,27 +57,59 @@ const ContributionCard = ({
           </span>
           <span className="text-xs">Updated {lastCommit}</span>
         </div>
-        <a
-          href={`https://github.com/${repo}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-sm font-medium"
-        >
-          View on GitHub →
-        </a>
+
+        <div className="flex items-center space-x-3">
+          {demoUrl && (
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackExternalLink(demoUrl)}
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors text-sm font-medium"
+            >
+              Demo →
+            </a>
+          )}
+
+          {docsUrl && (
+            <a
+              href={docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackExternalLink(docsUrl)}
+              className="text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors text-sm font-medium"
+            >
+              Docs →
+            </a>
+          )}
+
+          <a
+            href={`https://github.com/${repo}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackExternalLink(`https://github.com/${repo}`)}
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-sm font-medium"
+          >
+            GitHub →
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
-const StatsCard = ({ title, value, icon }) => {
+const StatsCard = ({ title, value, icon, loading }) => {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
       <div className="flex items-center space-x-3">
         <div className="text-gray-400 dark:text-gray-500">{icon}</div>
         <div>
           <div className="text-2xl font-bold text-gray-900 dark:text-white">
-            {value}
+            {loading ? (
+              <div className="animate-pulse bg-gray-300 dark:bg-gray-600 h-6 w-12 rounded"></div>
+            ) : (
+              value
+            )}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">
             {title}
@@ -80,10 +120,27 @@ const StatsCard = ({ title, value, icon }) => {
   );
 };
 
-const ActivityItem = ({ repo, action, date, link }) => {
+const ActivityItem = ({ repo, action, date, link, type }) => {
+  const getActionColor = (eventType) => {
+    switch (eventType) {
+      case "PushEvent":
+        return "bg-blue-500";
+      case "PullRequestEvent":
+        return "bg-green-500";
+      case "IssuesEvent":
+        return "bg-yellow-500";
+      case "CreateEvent":
+        return "bg-purple-500";
+      default:
+        return "bg-gray-500";
+    }
+  };
+
   return (
     <div className="flex items-start space-x-3 py-3 border-b border-gray-100 dark:border-gray-800 last:border-b-0">
-      <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+      <div
+        className={`w-2 h-2 rounded-full mt-2 ${getActionColor(type)}`}
+      ></div>
       <div className="flex-1">
         <p className="text-sm text-gray-900 dark:text-white">
           {action} in{" "}
@@ -91,9 +148,10 @@ const ActivityItem = ({ repo, action, date, link }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackExternalLink(link)}
             className="font-medium hover:underline"
           >
-            {repo}
+            {repo.split("/")[1]}
           </a>
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400">{date}</p>
@@ -102,6 +160,7 @@ const ActivityItem = ({ repo, action, date, link }) => {
   );
 };
 
+// Keep your existing icon components and getLanguageColor function
 const getLanguageColor = (language) => {
   const colors = {
     JavaScript: "bg-yellow-400",
@@ -114,10 +173,14 @@ const getLanguageColor = (language) => {
     Go: "bg-cyan-500",
     Rust: "bg-orange-600",
     PHP: "bg-purple-500",
+    HTML: "bg-red-500",
+    CSS: "bg-blue-600",
+    Shell: "bg-gray-600",
   };
   return colors[language] || "bg-gray-400";
 };
 
+// Keep all your existing icon components (StarIcon, ForkIcon, etc.)
 const StarIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -164,104 +227,235 @@ const PullRequestIcon = () => (
   </svg>
 );
 
+// Temporary test component - add this to your OpenSource.jsx for debugging
+const GitHubTest = () => {
+  const [testRepos, setTestRepos] = useState([]);
+
+  useEffect(() => {
+    const testFetch = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/users/Njoxpy/repos?per_page=10"
+        );
+        const data = await response.json();
+
+        setTestRepos(data.slice(0, 5)); // Just show first 5
+      } catch (error) {
+        console.error("Simple fetch failed:", error);
+      }
+    };
+
+    testFetch();
+  }, []);
+
+  return (
+    <div className="mb-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+      <h3 className="font-semibold mb-2">
+        GitHub API Test (Remove this later)
+      </h3>
+      <div className="space-y-2">
+        {testRepos.map((repo) => (
+          <div key={repo.id} className="text-sm">
+            <strong>{repo.name}</strong> - {repo.language} - ⭐
+            {repo.stargazers_count} - 🍴{repo.forks_count}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Add <GitHubTest /> right after your header section in the return statement
+// Your specific repositories with exact GitHub names and details
+const featuredRepoConfig = {
+  "Machine-Larning-Gatsby": {
+    description:
+      "Machine Learning documentation and tutorials built with Gatsby. A comprehensive resource for learning ML concepts and implementations.",
+    docsUrl: "https://njoxpy.github.io/Machine-Larning-Gatsby/",
+    type: "maintainer",
+  },
+  "Project-Docs-IPT": {
+    description:
+      "Information Processing Technology project documentation. Complete guide and resources for IPT projects and concepts.",
+    docsUrl: "https://njoxpy.github.io/Project-Docs-IPT/",
+    type: "maintainer",
+  },
+  "npm-tutorial": {
+    description:
+      "Comprehensive NPM tutorial covering package management, publishing, and best practices for Node.js developers.",
+    docsUrl: "https://njoxpy.github.io/npm-tutorial/",
+    type: "maintainer",
+  },
+  "React-Error-Explained": {
+    description:
+      "Common React errors explained with solutions. A debugging guide for React developers to solve frequent issues.",
+    docsUrl: "https://njoxpy.github.io/React-Error-Explained/",
+    type: "maintainer",
+  },
+  "Kali-Linux-Starter-Pack-Swahili": {
+    description:
+      "Kali Linux beginner's guide in Swahili. Complete cybersecurity and penetration testing tutorial for Swahili speakers.",
+    type: "maintainer",
+  },
+  "Python-Learning-Lab": {
+    description:
+      "Python learning laboratory with examples, exercises, and projects. From basics to advanced Python programming concepts.",
+    type: "maintainer",
+  },
+  "hello-world-Learning-Git-and-Github": {
+    description:
+      "Git and GitHub learning repository for beginners. Step-by-step guide to version control and collaboration.",
+    type: "maintainer",
+  },
+  "Cpp-Learning-lab": {
+    description:
+      "C++ learning laboratory with code examples, exercises, and projects covering fundamental to advanced concepts.",
+    type: "maintainer",
+  },
+};
+
 const OpenSource = () => {
-  const stats = [
-    { title: "Public Repositories", value: "24", icon: <RepoIcon /> },
-    { title: "Total Stars", value: "156", icon: <StarIcon /> },
-    { title: "Contributions", value: "432", icon: <CommitIcon /> },
-    { title: "Pull Requests", value: "89", icon: <PullRequestIcon /> },
-  ];
+  const [repos, setRepos] = useState([]);
+  const [stats, setStats] = useState(null);
+  const [contributions, setContributions] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const projects = [
-    {
-      repo: "njox-dev/awesome-react-components",
-      description:
-        "A curated list of awesome React components and libraries for building modern web applications.",
-      language: "JavaScript",
-      stars: "45",
-      forks: "12",
-      lastCommit: "2 days ago",
-      type: "maintainer",
-    },
-    {
-      repo: "njox-dev/tailwind-starter-kit",
-      description:
-        "A modern starter kit for React applications with Tailwind CSS, TypeScript, and best practices.",
-      language: "TypeScript",
-      stars: "28",
-      forks: "8",
-      lastCommit: "1 week ago",
-      type: "maintainer",
-    },
-    {
-      repo: "njox-dev/api-wrapper-generator",
-      description:
-        "CLI tool to generate TypeScript API wrappers from OpenAPI specifications with full type safety.",
-      language: "TypeScript",
-      stars: "67",
-      forks: "15",
-      lastCommit: "3 days ago",
-      type: "maintainer",
-    },
-  ];
+  useEffect(() => {
+    const loadGitHubData = async () => {
+      try {
+        const [reposData, statsData, contributionsData] = await Promise.all([
+          fetchGitHubRepos(),
+          fetchGitHubStats(),
+          fetchContributions(),
+        ]);
 
-  const contributions = [
-    {
-      repo: "facebook/react",
-      description:
-        "Fixed memory leak in useEffect cleanup for development builds",
-      language: "JavaScript",
-      stars: "201k",
-      forks: "41k",
-      lastCommit: "yesterday",
-    },
-    {
-      repo: "tailwindlabs/tailwindcss",
-      description: "Added new utility classes for container queries support",
-      language: "JavaScript",
-      stars: "68k",
-      forks: "3.4k",
-      lastCommit: "1 week ago",
-    },
-    {
-      repo: "vercel/next.js",
-      description: "Improved TypeScript integration for API routes",
-      language: "TypeScript",
-      stars: "112k",
-      forks: "24k",
-      lastCommit: "4 days ago",
-    },
-  ];
+        // Filter and enhance your featured repositories
+        const featuredProjects = reposData
+          .filter((repo) => featuredRepoConfig[repo.name]) // Only repos in your config
+          .map((repo) => {
+            const config = featuredRepoConfig[repo.name];
+            return {
+              repo: repo.full_name,
+              description: config.description,
+              language: repo.language,
+              stars: repo.stargazers_count,
+              forks: repo.forks_count,
+              lastCommit: new Date(repo.updated_at).toLocaleDateString(),
+              type: config.type,
+              docsUrl: config.docsUrl,
+            };
+          });
 
-  const recentActivity = [
-    {
-      repo: "njox-dev/awesome-react-components",
-      action: "Pushed 3 commits",
-      date: "2 days ago",
-      link: "https://github.com/njox-dev/awesome-react-components",
-    },
-    {
-      repo: "tailwindlabs/tailwindcss",
-      action: "Opened pull request #8234",
-      date: "1 week ago",
-      link: "https://github.com/tailwindlabs/tailwindcss/pull/8234",
-    },
-    {
-      repo: "njox-dev/api-wrapper-generator",
-      action: "Released v2.1.0",
-      date: "1 week ago",
-      link: "https://github.com/njox-dev/api-wrapper-generator/releases/tag/v2.1.0",
-    },
-    {
-      repo: "facebook/react",
-      action: "Merged pull request #24567",
-      date: "2 weeks ago",
-      link: "https://github.com/facebook/react/pull/24567",
-    },
-  ];
+        // Add any missing repos as fallback (in case API doesn't return them)
+        const foundRepoNames = featuredProjects.map(
+          (p) => p.repo.split("/")[1]
+        );
+        const missingRepos = Object.keys(featuredRepoConfig)
+          .filter((repoName) => !foundRepoNames.includes(repoName))
+          .map((repoName) => {
+            const config = featuredRepoConfig[repoName];
+            return {
+              repo: `Njoxpy/${repoName}`,
+              description: config.description,
+              language: "Unknown",
+              stars: 0,
+              forks: 0,
+              lastCommit: "Loading...",
+              type: config.type,
+              docsUrl: config.docsUrl,
+            };
+          });
+
+        const allFeaturedProjects = [...featuredProjects, ...missingRepos];
+
+        setRepos(allFeaturedProjects);
+        setStats(statsData);
+        setContributions(contributionsData);
+      } catch (error) {
+        console.error("Error loading GitHub data:", error);
+
+        // Fallback: create projects from config only
+        const fallbackProjects = Object.entries(featuredRepoConfig).map(
+          ([repoName, config]) => ({
+            repo: `Njoxpy/${repoName}`,
+            description: config.description,
+            language: "Unknown",
+            stars: 0,
+            forks: 0,
+            lastCommit: "API Error",
+            type: config.type,
+            docsUrl: config.docsUrl,
+          })
+        );
+
+        setRepos(fallbackProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGitHubData();
+  }, []);
+
+  const statsData = stats
+    ? [
+        {
+          title: "Public Repositories",
+          value: stats.public_repos,
+          icon: <RepoIcon />,
+          loading,
+        },
+        {
+          title: "Total Stars",
+          value: repos.reduce((sum, repo) => sum + (repo.stars || 0), 0),
+          icon: <StarIcon />,
+          loading,
+        },
+        {
+          title: "Followers",
+          value: stats.followers,
+          icon: <CommitIcon />,
+          loading,
+        },
+        {
+          title: "Following",
+          value: stats.following,
+          icon: <PullRequestIcon />,
+          loading,
+        },
+      ]
+    : [
+        {
+          title: "Public Repositories",
+          value: "Loading...",
+          icon: <RepoIcon />,
+          loading: true,
+        },
+        {
+          title: "Total Stars",
+          value: "Loading...",
+          icon: <StarIcon />,
+          loading: true,
+        },
+        {
+          title: "Followers",
+          value: "Loading...",
+          icon: <CommitIcon />,
+          loading: true,
+        },
+        {
+          title: "Following",
+          value: "Loading...",
+          icon: <PullRequestIcon />,
+          loading: true,
+        },
+      ];
+
+  // ... rest of your component remains the same
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 space-y-12">
+      {/* Your existing JSX remains the same */}
       {/* Header */}
       <section>
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -269,14 +463,15 @@ const OpenSource = () => {
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
           I believe in giving back to the community. Here are my contributions
-          to open source projects and tools I've built to help other developers.
+          to open source projects and educational resources I've built to help
+          other developers learn and grow.
         </p>
       </section>
 
       {/* Stats Overview */}
       <section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
+          {statsData.map((stat, index) => (
             <StatsCard key={index} {...stat} />
           ))}
         </div>
@@ -288,23 +483,11 @@ const OpenSource = () => {
           {/* My Projects */}
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              My Projects
+              My Projects & Tutorials
             </h2>
             <div className="space-y-4">
-              {projects.map((project, index) => (
+              {repos.map((project, index) => (
                 <ContributionCard key={index} {...project} />
-              ))}
-            </div>
-          </section>
-
-          {/* Contributions */}
-          <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              Notable Contributions
-            </h2>
-            <div className="space-y-4">
-              {contributions.map((contribution, index) => (
-                <ContributionCard key={index} {...contribution} />
               ))}
             </div>
           </section>
@@ -318,9 +501,15 @@ const OpenSource = () => {
             </h2>
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="space-y-1">
-                {recentActivity.map((activity, index) => (
-                  <ActivityItem key={index} {...activity} />
-                ))}
+                {contributions.length > 0 ? (
+                  contributions.map((activity, index) => (
+                    <ActivityItem key={index} {...activity} />
+                  ))
+                ) : (
+                  <p className="text-sm text-gray-500 dark:text-gray-400 text-center py-4">
+                    Loading recent activity...
+                  </p>
+                )}
               </div>
             </div>
           </section>
@@ -332,9 +521,10 @@ const OpenSource = () => {
             </h2>
             <div className="space-y-3">
               <a
-                href="https://github.com/njox-dev"
+                href="https://github.com/Njoxpy"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackExternalLink("https://github.com/Njoxpy")}
                 className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
               >
                 <svg

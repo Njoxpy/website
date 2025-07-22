@@ -4,28 +4,44 @@ import Timeline from "../components/common/Timeline";
 const Experience = () => {
   const experiences = [
     {
-      date: "2023 - Present",
-      title: "Senior Full Stack Developer",
-      company: "Tech Company",
-      description:
-        "Led development of scalable web applications serving 100k+ users. Mentored junior developers and implemented best practices for code quality and performance.",
-      type: "work",
-    },
-    {
-      date: "2022 - 2023",
+      date: "2025 - Present",
       title: "Full Stack Developer",
-      company: "Startup Inc",
+      company: "Porto Africa",
       description:
-        "Built MVP from scratch using React and Node.js. Collaborated with design team to create user-friendly interfaces and optimized database queries.",
+        "Develop and maintain web applications for a leading provider of custom electronic solutions. Build scalable systems to support innovative products including AI-driven EduTech devices (IREN), security solutions (LINDA), and eco-friendly technologies (EcoFlame). Collaborate with engineering and research teams to create digital solutions that complement cutting-edge electronic systems.",
       type: "work",
     },
     {
-      date: "2021 - 2022",
-      title: "Volunteer Developer",
-      company: "Non-Profit Organization",
+      date: "Nov 2024 - May 2025",
+      title: "Full-stack Developer",
+      company: "Savarrah",
       description:
-        "Developed and maintained website for local charity, improving their online presence and donation system.",
-      type: "volunteer",
+        "Lead the development of scalable web applications using React for frontend and Node.js for backend. Build and maintain RESTful APIs, ensuring smooth data integration between systems. Collaborate with cross-functional teams to deliver high-quality solutions while optimizing MongoDB queries for better performance. Ensure application security, scalability, and maintainability by following best practices.",
+      type: "work",
+    },
+    {
+      date: "Jan 2024 - May 2025",
+      title: "Swahili Translator",
+      company: "freeCodeCamp",
+      description:
+        "Translate technical content and educational materials from English to Swahili, making programming resources accessible to Swahili-speaking developers. Ensure accuracy and cultural relevance in technical terminology translation.",
+      type: "work",
+    },
+    {
+      date: "Jan 2024 - Jan 2025",
+      title: "Swahili Tech Terminology Translator",
+      company: "Swahili Tech Terms (Self-employed)",
+      description:
+        "Specialize in creating and standardizing Swahili translations for technical terminology in software development, web technologies, and programming concepts. Build comprehensive glossaries and resources for the Tanzanian tech community.",
+      type: "work",
+    },
+    {
+      date: "Jul 2023 - Feb 2024",
+      title: "Content Writer",
+      company: "Frontend Flow",
+      description:
+        "Created comprehensive educational content focused on frontend development technologies and best practices. Developed tutorials, guides, and resources for developers ranging from beginners to advanced practitioners, covering the latest tools and techniques in web development.",
+      type: "work",
     },
   ];
 

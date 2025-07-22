@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { trackDownload } from "../utils/analytics";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,7 +17,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", formData);
   };
 
   return (
@@ -154,6 +153,7 @@ const Contact = () => {
               <a
                 href="/GODBLESS_NYAGAWA_RESUME.pdf"
                 download="GODBLESS_NYAGAWA_RESUME.pdf"
+                onClick={() => trackDownload("Resume PDF")}
                 className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <svg
@@ -175,6 +175,7 @@ const Contact = () => {
               <a
                 href="/GODBLESS_NYAGAWA_CV.pdf"
                 download="GODBLESS_NYAGAWA_CV.pdf"
+                onClick={() => trackDownload("CV PDF")}
                 className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <svg
