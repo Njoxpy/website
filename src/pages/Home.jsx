@@ -23,6 +23,7 @@ const Home = () => {
   const companies = [
     { name: "Porto Africa", logo: "./porto.PNG" },
     { name: "Savarrah", logo: "./savarah.png" },
+    { name: "Addastrida", logo: "" },
   ];
 
   return (
@@ -66,7 +67,7 @@ const Home = () => {
               key={index}
               src={company.logo}
               alt={company.name}
-              className="h-8 object-contain grayscale"
+              className="h-8 object-contain"
             />
           ))}
         </div>

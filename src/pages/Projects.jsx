@@ -51,13 +51,6 @@ const Projects = () => {
 
   const allProjects = [
     {
-      title: "Savarrah",
-      description:
-        "A company management website streamlining inventory, product, and order management across various sectors.",
-      tech: ["React", "Next.js", "Tailwind CSS"],
-      link: "https://savarrah.co.tz/",
-    },
-    {
       title: "Porto Africa",
       description:
         "Porto designs innovative, tailored electronic solutions for businesses, integrating systems with operations",
@@ -78,6 +71,20 @@ const Projects = () => {
       tech: ["Next.js", "React", "Tailwind CSS", "MDX"],
       link: "https://njox.dev",
     },
+    {
+      title: "Savarrah",
+      description:
+        "A company management website streamlining inventory, product, and order management across various sectors.",
+      tech: ["React", "Next.js", "Tailwind CSS"],
+      link: "https://savarrah.co.tz/",
+    },
+    {
+      title: "KMS",
+      description:
+        "The KMS is a web based platform designed to facilitate the management of venue keys at the university.",
+      tech: ["React", "Express", "Tailwind CSS", "MongoDB"],
+      link: "",
+    },
   ];
   const allResearch = [
     {
@@ -93,8 +100,8 @@ const Projects = () => {
         "JavaScript",
         "TypeScript",
       ],
-      github: "https://github.com/username/njox-a-z-approach", // Update with your actual GitHub URL
-      image: "/images/projects/njox-approach.png",
+      github: "",
+      image: "",
       publishedDate: "2025-05-01",
     },
     {
@@ -123,21 +130,6 @@ const Projects = () => {
       ],
       github: "", // Add if available
       image: "/images/projects/swahili-programming.png",
-      publishedDate: "2025-05-01",
-    },
-    {
-      title: "The Njox A–Z Approach to Writing and Scaling Code",
-      description:
-        "Advanced research introducing a comprehensive framework for scalable, reusable software development with particular emphasis on async-friendly patterns and modern JavaScript architectures. This methodology covers code organization principles, scalability patterns, performance optimization techniques, and maintainable system design. The approach provides developers with practical guidelines for building applications that can grow from small projects to enterprise-level systems while maintaining code quality and developer productivity.",
-      tech: [
-        "Software Architecture",
-        "Scalability",
-        "JavaScript",
-        "System Design",
-        "Performance",
-      ],
-      github: "", // Add if available
-      image: "/images/projects/scaling-code.png",
       publishedDate: "2025-05-01",
     },
   ];

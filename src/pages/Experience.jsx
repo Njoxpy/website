@@ -4,19 +4,19 @@ import Timeline from "../components/common/Timeline";
 const Experience = () => {
   const experiences = [
     {
-      date: "2025 - Present",
-      title: "Full Stack Developer",
-      company: "Porto Africa",
+      date: "August 2025 - Present",
+      title: "Web Technician",
+      company: "Zanziholics",
       description:
-        "Develop and maintain web applications for a leading provider of custom electronic solutions. Build scalable systems to support innovative products including AI-driven EduTech devices (IREN), security solutions (LINDA), and eco-friendly technologies (EcoFlame). Collaborate with engineering and research teams to create digital solutions that complement cutting-edge electronic systems.",
+        "Managing cPanel and VPS hosting environments, Configuring and troubleshooting email services ,Installing and maintaining WordPress websites, Providing first-level client support for hosting-related issues.",
       type: "work",
     },
     {
-      date: "Nov 2024 - May 2025",
-      title: "Full-stack Developer",
-      company: "Savarrah",
+      date: "May 2025 - July 2025",
+      title: "Web Developer",
+      company: "Porto Africa",
       description:
-        "Lead the development of scalable web applications using React for frontend and Node.js for backend. Build and maintain RESTful APIs, ensuring smooth data integration between systems. Collaborate with cross-functional teams to deliver high-quality solutions while optimizing MongoDB queries for better performance. Ensure application security, scalability, and maintainability by following best practices.",
+        "Develop and maintain web applications for a leading provider of custom electronic solutions. Build scalable systems to support innovative products including AI-driven EduTech devices (IREN), security solutions (LINDA), and eco-friendly technologies (EcoFlame). Collaborate with engineering and research teams to create digital solutions that complement cutting-edge electronic systems.",
       type: "work",
     },
     {
