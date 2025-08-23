@@ -45,7 +45,7 @@ const Contact = () => {
                 Location
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Mbeya, Tanzania
+                Fumba Town, Zanzibar
               </p>
             </div>
             <div>
