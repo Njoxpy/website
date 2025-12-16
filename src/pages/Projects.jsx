@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-
 const ProjectCard = ({ title, description, tech, link, github }) => {
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors hover:shadow-sm">
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
         {title}
       </h3>
@@ -25,7 +23,7 @@ const ProjectCard = ({ title, description, tech, link, github }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium"
           >
             View Live →
           </a>
@@ -46,229 +44,90 @@ const ProjectCard = ({ title, description, tech, link, github }) => {
 };
 
 const Projects = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const [showAllResearch, setShowAllResearch] = useState(false);
-
   const allProjects = [
     {
       title: "Porto Africa",
       description:
-        "Porto designs innovative, tailored electronic solutions for businesses, integrating systems with operations",
-      tech: ["React", "Node.js", "MongoDB"],
+        "PORTO Africa is a Tanzania-based technology company that designs and builds custom electronic and smart systems for businesses, focusing on innovation, IoT, AI-powered solutions, and real-world problem solving across different industries.",
+      tech: ["HTML", "Tailwind CSS", "JavaScript"],
       link: "https://www.porto.africa/",
     },
     {
-      title: "Iren Porto Africa",
+      title: "Keys",
       description:
-        "IREN is revolutionizing inclusive education by providing accessible, intelligent tools that break down barriers and create equal learning opportunities for all students.",
-      tech: ["html", "CSS"],
-      link: "https://iren.porto.africa/",
+        "The Key Management System is a web-based platform designed to facilitate the management of venue keys at the university.",
+      tech: ["Mkdocs", "React", "Node.js", "MongoDB", "Express", "Tailwind"],
+      link: "https://njoxpy.github.io/njox_keys/",
+      github: "https://github.com/Njoxpy/njox_keys",
     },
     {
-      title: "NJOX Development",
+      title: "Karibu",
       description:
-        "Personal development portfolio and blog showcasing web development projects and insights.",
-      tech: ["Next.js", "React", "Tailwind CSS", "MDX"],
-      link: "https://njox.dev",
+        "Karibu is a company management system designed to support multiple business sectors—including animal feed production, milling, fresh oil processing, and printing—by centralizing operations, improving workflow management, and streamlining daily business activities across different departments.",
+      tech: ["React", "Node.js", "MongoDB", "Tailwind", "Express"],
+      github: "https://github.com/Njoxpy/karibu",
     },
     {
-      title: "Savarrah",
+      title: "GGMU",
       description:
-        "A company management website streamlining inventory, product, and order management across various sectors.",
-      tech: ["React", "Next.js", "Tailwind CSS"],
-      link: "https://savarrah.co.tz/",
+        "A landing page project celebrating Manchester United Football Club, built with Next.js and Tailwind CSS. The site showcases the club's history, iconic moments, and legendary players through a dedicated web page experience.",
+      tech: ["React", "Next.js", "CSS", "JavaScript"],
+      link: "https://ggmu.vercel.app/",
+      github: "https://github.com/Njoxpy/ggmu",
     },
     {
-      title: "KMS",
+      title: "kilimokacha",
       description:
-        "The KMS is a web based platform designed to facilitate the management of venue keys at the university.",
-      tech: ["React", "Express", "Tailwind CSS", "MongoDB"],
-      link: "",
+        "Kilimokacha is the website that helps farmers grow better by giving them access to farming tips, market updates, and expert advice. We're here to support you in making your farming more productive and profitable..",
+      tech: ["React", "Next.js", "CSS", "JavaScript"],
+      link: "https://kilimokacha.vercel.app/",
+      github: "https://github.com/Njoxpy/kilimokacha",
     },
   ];
-  const allResearch = [
-    {
-      title:
-        "NJOX A – Z APPROACH: A Practical Guide for Writing Clean, Maintainable and Modular Code",
-      description:
-        "Comprehensive research and methodology for developing clean, maintainable, and modular code practices. A systematic approach to software development covering best practices, design patterns, and architectural principles. This framework introduces scalable, reusable software development patterns with emphasis on async-friendly architectures, code organization, and long-term maintainability strategies for modern web applications.",
-      tech: [
-        "MongoDB",
-        "Express.js",
-        "React",
-        "Node.js",
-        "JavaScript",
-        "TypeScript",
-      ],
-      github: "",
-      image: "",
-      publishedDate: "2025-05-01",
-    },
-    {
-      title: "How Tanzanian Developers Market Their Projects",
-      description:
-        "An in-depth research study exploring the unique marketing strategies and community-driven growth approaches adopted by software developers in Tanzania. This research examines local networking practices, social media utilization, community engagement tactics, and the role of local tech hubs in project promotion. The study provides insights into how Tanzanian developers overcome resource constraints and leverage cultural advantages to successfully market their software projects both locally and internationally.",
-      tech: [
-        "Research",
-        "Community Analysis",
-        "Marketing Strategy",
-        "Social Media",
-      ],
-      github: "", // Add if available
-      image: "/images/projects/tanzanian-dev-marketing.png",
-      publishedDate: "2025-05-01",
-    },
-    {
-      title: "Swahili-Centric Programming Education via YouTube",
-      description:
-        "Groundbreaking research on bridging language barriers in programming education through Swahili-language content delivery on YouTube. This study explores the effectiveness of native language instruction in technical subjects, analyzes viewer engagement patterns, and documents the impact of culturally relevant programming education. The research demonstrates how Swahili programming tutorials can increase accessibility to coding education across East Africa and provides a framework for creating technical content in local languages.",
-      tech: [
-        "Educational Technology",
-        "Content Strategy",
-        "Swahili",
-        "YouTube Analytics",
-      ],
-      github: "", // Add if available
-      image: "/images/projects/swahili-programming.png",
-      publishedDate: "2025-05-01",
-    },
-  ];
-
-  // Show only first 3 items unless "show all" is clicked
-  const displayedProjects = showAllProjects
-    ? allProjects
-    : allProjects.slice(0, 3);
-  const displayedResearch = showAllResearch
-    ? allResearch
-    : allResearch.slice(0, 2);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 space-y-16">
+    <div className="max-w-4xl mx-auto px-6 py-16 space-y-12">
       <section>
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          Projects
+          Systems Architecture
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
-          Here are some of my recent projects and research work that showcase my
-          skills and interests.
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+          Production systems and applied research projects that demonstrate
+          full-stack implementation, data flow design, and practical
+          problem-solving.
         </p>
 
-        <div className="space-y-12">
-          {/* Featured Projects */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">
-              Featured Projects
-            </h2>
-            <div className="grid gap-8">
-              {displayedProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {allProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </section>
 
-            {/* See More Projects Button */}
-            {allProjects.length > 3 && (
-              <div className="flex justify-center mt-8">
-                <button
-                  onClick={() => setShowAllProjects(!showAllProjects)}
-                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                >
-                  {showAllProjects ? (
-                    <>
-                      <svg
-                        className="w-4 h-4 inline mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 15l7-7 7 7"
-                        />
-                      </svg>
-                      Show Less
-                    </>
-                  ) : (
-                    <>
-                      See More Projects ({allProjects.length - 3} more)
-                      <svg
-                        className="w-4 h-4 inline ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Research */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">
-              Research
-            </h2>
-            <div className="grid gap-8">
-              {displayedResearch.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-
-            {/* See More Research Button */}
-            {allResearch.length > 2 && (
-              <div className="flex justify-center mt-8">
-                <button
-                  onClick={() => setShowAllResearch(!showAllResearch)}
-                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                >
-                  {showAllResearch ? (
-                    <>
-                      <svg
-                        className="w-4 h-4 inline mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 15l7-7 7 7"
-                        />
-                      </svg>
-                      Show Less
-                    </>
-                  ) : (
-                    <>
-                      See More Research ({allResearch.length - 2} more)
-                      <svg
-                        className="w-4 h-4 inline ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </div>
-            )}
-          </div>
+      <section className="pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-gray-600 dark:text-gray-400">
+            For implementation details, system diagrams, and ongoing experiments
+          </p>
+          <a
+            href="https://github.com/Njoxpy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-lg hover:opacity-90 transition-colors inline-flex items-center"
+          >
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clipRule="evenodd"
+              />
+            </svg>
+            View Full GitHub Repository
+          </a>
         </div>
       </section>
     </div>

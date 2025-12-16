@@ -1,4 +1,4 @@
-// pages/NotFound.jsx
+import { Link } from "react-router-dom";
 const NotFound = () => (
   <div className="max-w-2xl mx-auto px-6 py-32 text-center">
     <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">

@@ -1,12 +1,53 @@
-# React + Vite
+# Portfolio - Systems Intelligence Architecture
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A strategic portfolio showcasing applied systems architecture, data engineering, and methodological research.
 
-Currently, two official plugins are available:
+## Architecture
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: React with Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router
+- **Deployment**: Vercel/Netlify ready
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Main page components
+├── assets/        # Images and static files
+└── styles/        # Global styles
+```
+
+## Core Pages
+
+- **Home**: Strategic positioning and systems overview
+- **Projects**: Production systems and architecture implementations
+- **Research**: Methodological investigations and published work
+- **Contact**: Direct engagement channel
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Strategic Positioning
+
+This portfolio demonstrates progression from full-stack engineering to systems intelligence architecture, with focus on:
+
+- Data platform design and implementation
+- OSINT-informed information synthesis
+- Problem-driven development methodologies
+- Clean, maintainable system architecture
+
+## License
+
+MIT

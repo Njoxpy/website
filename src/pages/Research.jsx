@@ -1,5 +1,3 @@
-import React from "react";
-
 const Research = () => {
   // Completed Projects
   const completedResearch = [
@@ -48,20 +46,6 @@ const Research = () => {
         "Problem validation techniques vs. solution assumptions",
         "Error patterns as system design feedback",
         "Integrating error-guidance into development lifecycle",
-      ],
-    },
-    {
-      title: "Information Synthesis Systems",
-      description:
-        "Architecting systems that transform unstructured public and private data into structured intelligence. Focus on automated correlation, anomaly detection, and insight generation across disparate sources.",
-      status: "Active Development",
-      category: "Systems Architecture",
-      tags: ["OSINT", "Data Pipelines", "Information Architecture"],
-      phase: "Prototyping",
-      focusAreas: [
-        "Real-time data ingestion and processing pipelines",
-        "Pattern recognition for early signal detection",
-        "Scalable architectures for heterogeneous data",
       ],
     },
   ];

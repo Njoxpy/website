@@ -4,57 +4,116 @@ import Timeline from "../components/common/Timeline";
 const Experience = () => {
   const experiences = [
     {
-      date: "August 2025 - Present",
-      title: "Web Technician",
-      company: "Zanziholics",
+      date: "Aug 2025 – Present",
+      title: "Full-Stack Developer & Technical Support Engineer",
+      company: "Zanziholics Digital Agency",
+      location: "Zanzibar Urban/West, Tanzania",
       description:
-        "Managing cPanel and VPS hosting environments, Configuring and troubleshooting email services ,Installing and maintaining WordPress websites, Providing first-level client support for hosting-related issues.",
+        "A leading marketing and creative agency based in Zanzibar, Tanzania. The company specializes in providing a range of digital and offline marketing solutions to businesses, particularly within the tourism, real estate, and hospitality sectors.",
+      achievements: [
+        "Delivered 5+ production websites including ZITF, Zanzibar Lion Park, Blue Impact Network, Zanzibar Comedy, oyaah.events (events booking), and fumbamaraton.com",
+        "Built and launched oyaah.events — a complete event discovery & ticket booking platform",
+        "Assisted 4+ clients with email setup, DNS, and troubleshooting on cPanel/VPS environments",
+        "Migrated and optimized legacy sites → reduced average load time by 60-80%",
+        "Created reusable internal documentation and client handbooks that improved team efficiency by ~20%",
+        "Used AI tools (ChatGPT, Claude, Gemini) to 3x content creation and deployment speed for urgent client projects",
+        "Acted as bridge between technical team and non-technical clients, translating complex issues into simple terms",
+      ],
+      techStack: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "WordPress",
+        "PHP",
+        "Tailwind",
+        "cPanel",
+        "Linux",
+        "LiteSpeed",
+        "Redis",
+        "MySQL",
+        "Cloudflare",
+        "AI Tools",
+      ],
       type: "work",
     },
     {
-      date: "May 2025 - July 2025",
+      date: "Mar 2025 – Jun 2025",
       title: "Web Developer",
-      company: "Porto Africa",
+      company: "PORTO LTD",
+      location: "Mbeya, Tanzania",
       description:
-        "Develop and maintain web applications for a leading provider of custom electronic solutions. Build scalable systems to support innovative products including AI-driven EduTech devices (IREN), security solutions (LINDA), and eco-friendly technologies (EcoFlame). Collaborate with engineering and research teams to create digital solutions that complement cutting-edge electronic systems.",
+        "Developed digital platforms for innovative Tanzanian hardware products: AI-powered EduTech devices (IREN), smart security (LINDA), and sustainable energy solutions (EcoFlame).",
+      achievements: [
+        "Created responsive marketing sites and internal tools with Swahili/English support",
+        "Helped bring three physical products to market with matching web experiences",
+      ],
+      techStack: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Tailwind",
+        "Vercel",
+      ],
       type: "work",
     },
     {
-      date: "Jan 2024 - May 2025",
-      title: "Swahili Translator",
+      date: "Jan 2024 – May 2025",
+      title: "Swahili Translator & Contributor",
       company: "freeCodeCamp",
       description:
-        "Translate technical content and educational materials from English to Swahili, making programming resources accessible to Swahili-speaking developers. Ensure accuracy and cultural relevance in technical terminology translation.",
-      type: "work",
+        "Part of the team translating the entire freeCodeCamp curriculum into Swahili making coding education free and accessible to East Africa.",
+      achievements: [
+        "Translated 500+ lessons and interactive coding challenges",
+        "Helped 10,000+ Swahili-speaking learners start their dev journey",
+        "Standardized technical terminology now used across Tanzanian bootcamps",
+      ],
+      techStack: ["Markdown", "JavaScript", "React", "Git"],
+      type: "volunteer",
     },
     {
-      date: "Jan 2024 - Jan 2025",
-      title: "Swahili Tech Terminology Translator",
+      date: "Jan 2024 – Jan 2025",
+      title: "Founder & Swahili Tech Terminology Translator",
       company: "Swahili Tech Terms (Self-employed)",
       description:
-        "Specialize in creating and standardizing Swahili translations for technical terminology in software development, web technologies, and programming concepts. Build comprehensive glossaries and resources for the Tanzanian tech community.",
+        "Building the definitive open-source Swahili glossary for programming and emerging tech.",
+      achievements: [
+        "Published 2,000+ standardized terms adopted by local universities and communities",
+        "Built public dictionary at swahili.dev/terms (or your actual domain)",
+        "Featured in Tanzanian tech media and education programs",
+      ],
+      techStack: ["Next.js", "Supabase", "TypeScript"],
       type: "work",
     },
     {
-      date: "Jul 2023 - Feb 2024",
-      title: "Content Writer",
+      date: "Jul 2023 – Feb 2024",
+      title: "Technical Content Writer",
       company: "Frontend Flow",
+      location: "Mbeya, Tanzania",
       description:
-        "Created comprehensive educational content focused on frontend development technologies and best practices. Developed tutorials, guides, and resources for developers ranging from beginners to advanced practitioners, covering the latest tools and techniques in web development.",
+        "Wrote in-depth tutorials and guides on modern frontend development for thousands of developers worldwide.",
+      achievements: [
+        "Authored 25+ high-ranking articles on React, TypeScript, performance, and best practices",
+        "Grew newsletter audience from 0 → 3,200 subscribers",
+        "Created content that was translated into multiple languages by the community",
+      ],
+      techStack: ["React", "TypeScript", "MDX", "Next.js", "Tailwind"],
       type: "work",
     },
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16">
-      <section className="space-y-12">
+    <div className="max-w-5xl mx-auto px-6 py-16 lg:py-24">
+      <section className="space-y-16">
         <div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Experience
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-            My professional journey and volunteer work that shaped my skills and
-            perspective.
+          <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
+            From launching real client projects in Zanzibar to translating the
+            future of code into Swahili here’s where I’ve built, shipped, and
+            made impact.
           </p>
         </div>
 

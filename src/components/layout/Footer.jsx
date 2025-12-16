@@ -1,5 +1,3 @@
-import React from "react";
-
 const Footer = () => {
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 mt-20">
@@ -11,7 +9,7 @@ const Footer = () => {
           </div>
           <div className="flex space-x-6">
             <a
-              href="mailto:hi@njox.dev"
+              href="mailto:godblessnyagawa@gmail.com"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Email
@@ -31,6 +29,14 @@ const Footer = () => {
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               LinkedIn
+            </a>
+            <a
+              href="https://www.youtube.com/@UCpodO0NaQSgUP7p4A755P1w"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              YouTube
             </a>
           </div>
         </div>

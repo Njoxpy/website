@@ -265,10 +265,9 @@ const GitHubTest = () => {
   );
 };
 
-// Add <GitHubTest /> right after your header section in the return statement
-// Your specific repositories with exact GitHub names and details
+// https://github.com/NuruProgramming/nyarakaconst
 const featuredRepoConfig = {
-  "Machine-Larning-Gatsby": {
+  "Machine-Learning-Gatsby": {
     description:
       "Machine Learning documentation and tutorials built with Gatsby. A comprehensive resource for learning ML concepts and implementations.",
     docsUrl: "https://njoxpy.github.io/Machine-Larning-Gatsby/",
@@ -295,21 +294,67 @@ const featuredRepoConfig = {
   "Kali-Linux-Starter-Pack-Swahili": {
     description:
       "Kali Linux beginner's guide in Swahili. Complete cybersecurity and penetration testing tutorial for Swahili speakers.",
+    docsUrl: "https://njoxpy.github.io/Kali-Linux-Starter-Pack-Swahili/",
     type: "maintainer",
   },
   "Python-Learning-Lab": {
     description:
       "Python learning laboratory with examples, exercises, and projects. From basics to advanced Python programming concepts.",
+    docsUrl: "https://njoxpy.github.io/Python-Learning-Lab/",
     type: "maintainer",
   },
   "hello-world-Learning-Git-and-Github": {
     description:
       "Git and GitHub learning repository for beginners. Step-by-step guide to version control and collaboration.",
     type: "maintainer",
+    docsUrl: "https://njoxpy.github.io/hello-world-Learning-Git-and-Github/",
   },
   "Cpp-Learning-lab": {
     description:
       "C++ learning laboratory with code examples, exercises, and projects covering fundamental to advanced concepts.",
+    type: "maintainer",
+    docsUrl: "https://njoxpy.github.io/Cpp-Learning-lab/",
+  },
+  "System-Design": {
+    description:
+      "System Design (by NjoxPy) is an online technical documentation and learning resource that explains key concepts in software system architecture and design principles. The site covers topics such as scalability, system components, performance, databases, caching, load balancing, and design patterns, helping developers understand how to build reliable and efficient large-scale systems.",
+    type: "maintainer",
+    docsUrl: "https://njoxpy.github.io/systemdesign/",
+  },
+  OSINT: {
+    description:
+      "Welcome to the comprehensive Open Source Intelligence (OSINT) learning guide. This documentation provides essential tools, techniques, and methodologies for conducting effective OSINT investigations.",
+    docsUrl: "https://njoxpy.github.io/osint/",
+    type: "maintainer",
+  },
+  "Data-Structures-and-Algorithms": {
+    description:
+      "Data Structures and Algorithms (by NjoxPy) is a comprehensive educational documentation site that explains core computer science concepts. It covers fundamental data structures (like arrays, linked lists, trees, hashing) and algorithms (including sorting, binary search, recursion, dynamic programming, graphs, bit manipulation), with explanations and examples meant to help learners understand and apply these topics.",
+    docsUrl: "https://njoxpy.github.io/Data-structures-and-algorithms/",
+    type: "maintainer",
+  },
+  IPTDocs: {
+    description:
+      "The Digital Logbook System is designed to streamline the Industrial Practical Training (IPT) process by replacing traditional paper-based logbooks with an online platform. It facilitates easy recording, tracking, and reviewing of practical training activities.",
+    docsUrl: "https://njoxpy.github.io/Project-Docs-IPT/",
+    type: "maintainer",
+  },
+  ZuriSaaS: {
+    description:
+      "Zuri SASS is a custom SASS library inspired by Google's Material Design. The name `Zuri` means `beautiful` in Swahili, reflecting the aesthetic appeal and elegance of the styles and components included in this library.",
+    docsUrl: "https://github.com/Njoxpy/ZuriSASS",
+    type: "maintainer",
+  },
+  "Swahili Glossary": {
+    description:
+      "This project provides a **Swahili glossary** intended for developers, translators, and localization projects. Use it as a reference to standardize terminology and improve translations in your software",
+    docsUrl: "https://njoxpy.github.io/Swahili-Glossary/",
+    type: "maintainer",
+  },
+  "Golang Learning Swahili": {
+    description:
+      "This project aims to provide learning resources for individuals interested in learning the Go programming language (Golang) in Swahili. Whether you're a beginner or an experienced developer looking to expand your skill set, this repository has something for everyone.",
+    docsUrl: "https://njoxpy.github.io/Golang_Learning_In_Swahili/",
     type: "maintainer",
   },
 };
@@ -545,6 +590,37 @@ const OpenSource = () => {
             </div>
           </section>
         </div>
+      </div>
+
+      <div>
+        <p>
+          Njoxpy is also active contributor in the following projects{" "}
+          <a
+            href="http://https://github.com/iamkun/dayjs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 p-2"
+          >
+            Day Js
+          </a>
+          <a
+            href="https://github.com/NuruProgramming/nyaraka"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 p-2"
+          >
+            Nuru Nyaraka
+          </a>
+          <p className="inline">and</p>
+          <a
+            href="https://github.com/VundleVim/Vundle.vim"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 p-2"
+          >
+            vundle
+          </a>
+        </p>
       </div>
     </div>
   );

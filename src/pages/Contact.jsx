@@ -1,24 +1,5 @@
-import React, { useState } from "react";
 import { trackDownload } from "../utils/analytics";
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-  };
-
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">
       <section className="space-y-8">
@@ -38,7 +19,9 @@ const Contact = () => {
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                 Email
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">hi@njox.dev</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                godblessnyagawa@gmail.com
+              </p>
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
@@ -55,18 +38,21 @@ const Contact = () => {
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/Njoxpy"
+                  target="_blank"
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   GitHub
                 </a>
                 <a
                   href="https://www.linkedin.com/in/godbless-nyagawa/"
+                  target="_blank"
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   LinkedIn
                 </a>
                 <a
                   href="https://x.com/Njox16"
+                  target="_blank"
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Twitter
@@ -75,71 +61,23 @@ const Contact = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-              />
-            </div>
+          {/* hey */}
 
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 px-6 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+          <div className="max-w-lg mx-auto shadow-xl rounded-lg overflow-hidden">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfl6__XI1BVrpGrcAc67ZNf7Dom5X-_qzawZZkTF1oNaopJsg/viewform?embedded=true"
+              width="640"
+              height="721"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              className="w-full h-[500px] border-none"
             >
-              Send Message
-            </button>
-          </form>
+              Loading…
+            </iframe>
+          </div>
         </div>
 
-        {/* Add this after the contact form */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="text-center space-y-4">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">

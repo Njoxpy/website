@@ -11,6 +11,7 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
     { name: "Experience", path: "/experience" },
+    { name: "Research", path: "/research" },
     { name: "Open Source", path: "/opensource" },
     { name: "Contact", path: "/contact" },
     { name: "Blog", path: "https://blog.njox.dev/", external: true },

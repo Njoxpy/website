@@ -23,7 +23,6 @@ const Home = () => {
   const companies = [
     { name: "Porto Africa", logo: "./porto.PNG" },
     { name: "Savarrah", logo: "./savarah.png" },
-    { name: "Addastrida", logo: "" },
   ];
 
   return (
@@ -34,9 +33,11 @@ const Home = () => {
           Hi, I'm Godbless Nyagawa(Njox)
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-          Full Stack Developer passionate about building meaningful digital
-          experiences. I create scalable solutions that solve real problems and
-          drive business growth.
+          Full Stack Developer driven by curiosity and discipline. I build
+          open-source tools and scalable systems that solve business
+          inefficiencies and improve daily life for communities. With a
+          tinkering mindset rooted in reverse engineering and research, I create
+          solutions that last.
         </p>
 
         {/* CTA Buttons */}
