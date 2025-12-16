@@ -1,6 +1,6 @@
 // src/services/github.js (Alternative version)
 const GITHUB_USERNAME = "Njoxpy";
-const GITHUB_TOKEN = import.meta.env.REACT_APP_GITHUB_TOKEN;
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 const headers = {
   Accept: "application/vnd.github.v3+json",

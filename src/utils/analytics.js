@@ -2,7 +2,7 @@
 import ReactGA from "react-ga4";
 
 export const initGA = () => {
-  const trackingId = import.meta.env.REACT_APP_GA_TRACKING_ID || "G-5X27LPW2YV";
+  const trackingId = import.meta.env.REACT_APP_GA_TRACKING_ID;
 
   if (trackingId) {
     ReactGA.initialize(trackingId);
